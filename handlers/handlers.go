@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/renishb10/golang-jwt/models"
@@ -49,7 +50,7 @@ func Signup(w http.ResponseWriter, r *http.Request) {
 
 func generateToken(user models.User) (string, error) {
 	var err error
-	secret := "MySecretKey"
+	secret := os.Getenv("MYSECRETKEY")
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"email": user.Email,

@@ -10,6 +10,7 @@ require (
 	github.com/gorilla/mux v1.7.4
 	github.com/lib/pq v1.7.0
 	github.com/mattn/go-shellwords v1.0.10 // indirect
+	github.com/subosito/gotenv v1.2.0
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
 	gopkg.in/urfave/cli.v1 v1.20.0 // indirect
 )

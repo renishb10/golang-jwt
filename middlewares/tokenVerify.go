@@ -3,6 +3,7 @@ package middlewares
 import (
 	"fmt"
 	"net/http"
+	"os"
 	"strings"
 
 	"github.com/davecgh/go-spew/spew"
@@ -26,7 +27,7 @@ func TokenVerifyMiddleware(next http.HandlerFunc) http.HandlerFunc {
 					return nil, fmt.Errorf("Error parsing token")
 				}
 
-				return []byte("MySecretKey"), nil
+				return []byte(os.Getenv("MYSECRETKEY")), nil
 			})
 
 			if err != nil {

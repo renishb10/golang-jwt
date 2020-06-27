@@ -8,6 +8,7 @@ import (
 	"github.com/renishb10/golang-jwt/db"
 	"github.com/renishb10/golang-jwt/handlers"
 	"github.com/renishb10/golang-jwt/middlewares"
+	"github.com/subosito/gotenv"
 )
 
 type App struct {
@@ -15,6 +16,7 @@ type App struct {
 }
 
 func (a *App) Init() {
+	gotenv.Load()
 	db.Init()
 
 	a.Router = mux.NewRouter()

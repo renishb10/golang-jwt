@@ -3,6 +3,7 @@ package db
 import (
 	"database/sql"
 	"log"
+	"os"
 
 	"github.com/lib/pq"
 )
@@ -11,7 +12,7 @@ var DB *sql.DB
 
 func Init() {
 	// DB init
-	pgUrl, err := pq.ParseURL("postgres://renishb@localhost:5432/golangjwtdb?sslmode=disable")
+	pgUrl, err := pq.ParseURL(os.Getenv("DBURL"))
 	if err != nil {
 		log.Fatal(err)
 	}
