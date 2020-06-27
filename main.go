@@ -1,19 +1,12 @@
 package main
 
 import (
-	"log"
-	"net/http"
-
-	"github.com/gorilla/mux"
-	"github.com/renishb10/golang-jwt/handlers"
+	App "github.com/renishb10/golang-jwt/app"
 )
 
 func main() {
-	r := mux.NewRouter()
-	r.HandleFunc("/signup", handlers.Signup).Methods("POST")
-	r.HandleFunc("/login", handlers.Login).Methods("POST")
-	//r.HandleFunc("/protected", middlewares.TokenVerifyMiddleware(handlers.Protected)).Methods("GET")
+	a := App.App{}
+	a.Init()
 
-	log.Println("Listening on port 8080")
-	log.Fatal(http.ListenAndServe(":8080", r))
+	a.Run()
 }
