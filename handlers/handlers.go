@@ -117,5 +117,5 @@ func Login(w http.ResponseWriter, r *http.Request) {
 }
 
 func Protected(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Protected"))
+	fmt.Println("Protected Invoked")
 }
